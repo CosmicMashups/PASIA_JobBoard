@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}Post a Job - PASIA Job Board{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="post-job-container">
+        <div class="post-job-header">
+            <h1>Post a New Job</h1>
+            <p>Find the best talent for your supply chain, procurement, and logistics roles</p>
+        </div>
+
+        <form class="post-job-form" method="POST" action="{{ url_for('post_job') }}">
+            {{ csrf_token() }}
+            
+            <div class="form-section">
+                <h2>Job Details</h2>
+                
+                <div class="form-group">
+                    <label for="job_title">Job Title *</label>
+                    <input type="text" id="job_title" name="job_title" required class="form-input" placeholder="e.g. Senior Procurement Specialist">
+                </div>
+
+                <div class="form-group">
+                    <label for="job_description">Job Description *</label>
+                    <textarea id="job_description" name="job_description" required class="form-textarea" rows="8" placeholder="Provide a detailed description of the role, responsibilities, and what you're looking for in a candidate..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="qualifications">Qualifications *</label>
+                    <textarea id="qualifications" name="qualifications" required class="form-textarea" rows="6" placeholder="List the required qualifications, skills, and experience..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="responsibilities">Key Responsibilities</label>
+                    <textarea id="responsibilities" name="responsibilities" class="form-textarea" rows="6" placeholder="Outline the main responsibilities and duties..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="benefits">Benefits & Perks</label>
+                    <textarea id="benefits" name="benefits" class="form-textarea" rows="4" placeholder="Describe the benefits, perks, and what makes your company a great place to work..."></textarea>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Job Settings</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location">Location *</label>
+                        <input type="text" id="location" name="location" required class="form-input" placeholder="e.g. BGC, Taguig">
+                    </div>
+                    <div class="form-group">
+                        <label for="work_arrangement">Work Arrangement *</label>
+                        <select id="work_arrangement" name="work_arrangement" required class="form-select">
+                            <option value="">Select Arrangement</option>
+                            <option value="on-site">On-site</option>
+                            <option value="remote">Remote</option>
+                            <option value="hybrid">Hybrid</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="work_type">Employment Type *</label>
+                        <select id="work_type" name="work_type" required class="form-select">
+                            <option value="">Select Type</option>
+                            <option value="full-time">Full-time</option>
+                            <option value="part-time">Part-time</option>
+                            <option value="contract">Contract</option>
+                            <option value="internship">Internship</option>
+                            <option value="freelance">Freelance</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="classification">Job Category *</label>
+                        <select id="classification" name="classification" required class="form-select">
+                            <option value="">Select Category</option>
+                            <option value="supply-chain">Supply Chain</option>
+                            <option value="procurement">Procurement</option>
+                            <option value="logistics">Logistics</option>
+                            <option value="operations">Operations</option>
+                            <option value="management">Management</option>
+                            <option value="consulting">Consulting</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="experience_level">Experience Level *</label>
+                        <select id="experience_level" name="experience_level" required class="form-select">
+                            <option value="">Select Level</option>
+                            <option value="entry">Entry Level (0-2 years)</option>
+                            <option value="mid">Mid Level (3-5 years)</option>
+                            <option value="senior">Senior Level (6-10 years)</option>
+                            <option value="executive">Executive (10+ years)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="salary_range">Salary Range</label>
+                        <select id="salary_range" name="salary_range" class="form-select">
+                            <option value="">Not disclosed</option>
+                            <option value="30000-50000">₱30,000 - ₱50,000</option>
+                            <option value="50000-70000">₱50,000 - ₱70,000</option>
+                            <option value="70000-100000">₱70,000 - ₱100,000</option>
+                            <option value="100000-150000">₱100,000 - ₱150,000</option>
+                            <option value="150000+">₱150,000+</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Posting Options</h2>
+                
+                <div class="posting-options">
+                    <div class="option-card">
+                        <input type="radio" id="basic" name="posting_plan" value="basic" required>
+                        <label for="basic" class="option-label">
+                            <div class="option-header">
+                                <h3>Basic</h3>
+                                <span class="price">₱999/month</span>
+                            </div>
+                            <ul class="option-features">
+                                <li>30-day listing</li>
+                                <li>Standard visibility</li>
+                                <li>Listed in relevant category</li>
+                            </ul>
+                        </label>
+                    </div>
+
+                    <div class="option-card featured">
+                        <input type="radio" id="enhanced" name="posting_plan" value="enhanced">
+                        <label for="enhanced" class="option-label">
+                            <div class="option-header">
+                                <h3>Enhanced</h3>
+                                <span class="price">₱1,799/2 months</span>
+                                <span class="popular-badge">Most Popular</span>
+                            </div>
+                            <ul class="option-features">
+                                <li>60-day listing</li>
+                                <li>Highlighted in search results</li>
+                                <li>Priority positioning</li>
+                            </ul>
+                        </label>
+                    </div>
+
+                    <div class="option-card">
+                        <input type="radio" id="premium" name="posting_plan" value="premium">
+                        <label for="premium" class="option-label">
+                            <div class="option-header">
+                                <h3>Premium</h3>
+                                <span class="price">₱2,999/2 months</span>
+                            </div>
+                            <ul class="option-features">
+                                <li>60-day listing</li>
+                                <li>Homepage spotlight</li>
+                                <li>Featured tag</li>
+                                <li>Company logo display</li>
+                            </ul>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-large">Publish Job Posting</button>
+                <button type="button" class="btn btn-outline">Save as Draft</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

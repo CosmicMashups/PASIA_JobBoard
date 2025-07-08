@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}{{ job.title }} - {{ job.company_name }} | PASIA Job Board{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="job-detail-container">
+        <div class="job-detail-header">
+            <div class="job-header-content">
+                <h1 class="job-title">{{ job.title }}</h1>
+                <div class="job-meta">
+                    <h2 class="company-name">{{ job.company_name }}</h2>
+                    <p class="job-location">{{ job.location }}</p>
+                    <div class="job-badges">
+                        <span class="badge badge-work-type">{{ job.work_type }}</span>
+                        <span class="badge badge-category">{{ job.classification }}</span>
+                        {% if job.is_remote %}
+                        <span class="badge badge-remote">Remote</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="job-actions">
+                <button class="btn btn-primary btn-large" onclick="applyForJob({{ job.id }})">Apply Now</button>
+                <button class="btn btn-outline" onclick="saveJob({{ job.id }})">Save Job</button>
+            </div>
+        </div>
+
+        <div class="job-detail-content">
+            <div class="job-main-content">
+                <section class="job-section">
+                    <h3>Job Description</h3>
+                    <div class="job-description">
+                        {{ job.description | safe }}
+                    </div>
+                </section>
+
+                <section class="job-section">
+                    <h3>Qualifications</h3>
+                    <div class="job-qualifications">
+                        {{ job.qualifications | safe }}
+                    </div>
+                </section>
+
+                {% if job.responsibilities %}
+                <section class="job-section">
+                    <h3>Responsibilities</h3>
+                    <div class="job-responsibilities">
+                        {{ job.responsibilities | safe }}
+                    </div>
+                </section>
+                {% endif %}
+
+                {% if job.benefits %}
+                <section class="job-section">
+                    <h3>Benefits</h3>
+                    <div class="job-benefits">
+                        {{ job.benefits | safe }}
+                    </div>
+                </section>
+                {% endif %}
+            </div>
+
+            <div class="job-sidebar">
+                <div class="job-info-card">
+                    <h3>Job Information</h3>
+                    <div class="job-info-item">
+                        <strong>Work Type:</strong>
+                        <span>{{ job.work_type }}</span>
+                    </div>
+                    <div class="job-info-item">
+                        <strong>Classification:</strong>
+                        <span>{{ job.classification }}</span>
+                    </div>
+                    <div class="job-info-item">
+                        <strong>Location:</strong>
+                        <span>{{ job.location }}</span>
+                    </div>
+                    {% if job.salary_range %}
+                    <div class="job-info-item">
+                        <strong>Salary:</strong>
+                        <span>{{ job.salary_range }}</span>
+                    </div>
+                    {% endif %}
+                    <div class="job-info-item">
+                        <strong>Posted:</strong>
+                        <span>{{ job.posted_date }}</span>
+                    </div>
+                    <div class="job-info-item">
+                        <strong>Expires:</strong>
+                        <span>{{ job.expires_date }}</span>
+                    </div>
+                </div>
+
+                <div class="company-info-card">
+                    <h3>About {{ job.company_name }}</h3>
+                    {% if job.company_logo %}
+                    <img src="{{ job.company_logo }}" alt="{{ job.company_name }}" class="company-logo">
+                    {% endif %}
+                    <p>{{ job.company_description }}</p>
+                    {% if job.company_website %}
+                    <a href="{{ job.company_website }}" target="_blank" class="company-website">Visit Website</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
