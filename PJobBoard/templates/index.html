@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PASIA Job Board - Find Your Next Career Opportunity</title>
+  <link rel="stylesheet" href="../static/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-left">
+        <a href="index.html">
+            <img src="../static/images/pasia-logo.png" alt="PASIA Logo" class="logo" />
+        </a>
+        </div>
+        <div class="nav-right">
+        <a href="index.html" class="nav-link">Home</a>
+
+        <!-- <div class="dropdown">
+            <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Solutions & Services
+            </button>
+            <div class="dropdown-menu" aria-label="submenu">
+            <a href="#" class="dropdown-item">Consulting</a>
+            <a href="#" class="dropdown-item">Training</a>
+            <a href="#" class="dropdown-item">Services</a>
+            <a href="#" class="dropdown-item">Technology</a>
+            </div>
+        </div> -->
+
+        <a href="#" class="nav-link">Contact Us</a>
+        <a href="#" class="nav-link">About PASIA</a>
+
+        <div class="dropdown">
+            <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Profile
+            </button>
+            <div class="dropdown-menu" aria-label="submenu">
+            <a href="#" class="dropdown-item">Edit Profile</a>
+            <a href="#" class="dropdown-item">Logout</a>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    </nav>
+
+  <main>
+    <section class="hero">
+        <div class="hero-background">
+            <img src="../static/images/hero-bg.jpg" alt="Office Building" class="hero-bg-image" />
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Leading Supply Chain, Procurement, and Logistics Excellence in Asia</h1>
+            <p class="hero-subtitle">Driving Ethics, Excellence, and Innovation in Global Supply Chains</p>
+
+            <div class="search-container">
+                <form class="job-search-form" method="GET" action="search_jobs.html">
+                    <div class="search-inputs">
+
+                        <!-- Search Bar -->
+                        <input type="text" name="keyword" placeholder="Job title, keywords, or company" class="search-input" />
+
+                        <!-- Classification -->
+                        <select name="classification" class="search-select">
+                            <option value="">Any classification</option>
+                            <option value="Accounting">Accounting</option>
+                            <option value="Administration & Office Support">Administration & Office Support</option>
+                            <option value="Advertising, Arts & Media">Advertising, Arts & Media</option>
+                            <option value="Banking & Financial Services">Banking & Financial Services</option>
+                            <option value="Call Centre & Customer Service">Call Centre & Customer Service</option>
+                            <option value="CEO & General Management">CEO & General Management</option>
+                            <option value="Community Services & Development">Community Services & Development</option>
+                            <option value="Construction">Construction</option>
+                            <option value="Consulting & Strategy">Consulting & Strategy</option>
+                            <option value="Design & Architecture">Design & Architecture</option>
+                            <option value="Education & Training">Education & Training</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="Farming, Animals & Conservation">Farming, Animals & Conservation</option>
+                            <option value="Government & Defense">Government & Defense</option>
+                            <option value="Healthcare & Medical">Healthcare & Medical</option>
+                            <option value="Hospitality & Tourism">Hospitality & Tourism</option>
+                            <option value="Human Resources & Recruitment">Human Resources & Recruitment</option>
+                            <option value="Information & Communication Technology">Information & Communication Technology</option>
+                            <option value="Insurance & Superannuation">Insurance & Superannuation</option>
+                            <option value="Legal">Legal</option>
+                            <option value="Manufacturing, Transport & Logistics">Manufacturing, Transport & Logistics</option>
+                            <option value="Marketing & Communications">Marketing & Communications</option>
+                            <option value="Mining, Resources & Energy">Mining, Resources & Energy</option>
+                            <option value="Real Estate & Property">Real Estate & Property</option>
+                            <option value="Retail & Consumer Products">Retail & Consumer Products</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Science & Technology">Science & Technology</option>
+                            <option value="Self Employment">Self Employment</option>
+                            <option value="Sport & Recreation">Sport & Recreation</option>
+                            <option value="Trades & Services">Trades & Services</option>
+                        </select>
+
+                        <!-- Location -->
+                        <input type="text" name="location" placeholder="Location" class="search-input" />
+
+                        <!-- Search Button -->
+                        <button type="submit" class="search-btn inline-search-btn">Search Jobs</button>
+
+                        <!-- Toggle More Filters -->
+                        <div id="toggle-filters" class="toggle-link" tabindex="0" role="button" aria-expanded="false">
+                            <span class="toggle-text">More filters</span>
+                            <span class="toggle-arrow">&#x25BC;</span> <!-- Downward arrow -->
+                        </div>
+
+                        <!-- Filter Dropdown -->
+                        <div class="search-filters-wrapper">
+                            <div class="search-filters">
+                                <div class="filter-group">
+                                    <label for="work_type">Work Type:</label>
+                                    <select name="work_type" class="search-select">
+                                        <option value="full-time">Full-time</option>
+                                        <option value="part-time">Part-time</option>
+                                        <option value="internship">Internship</option>
+                                        <option value="freelance">Freelance</option>
+                                    </select>
+                                </div>
+
+                                <div class="filter-group">
+                                    <label for="date_posted">Posted:</label>
+                                    <select name="date_posted" class="search-select">
+                                        <option value="">Any time</option>
+                                        <option value="today">Today</option>
+                                        <option value="week">This week</option>
+                                        <option value="month">This month</option>
+                                    </select>
+                                </div>
+
+                                <div class="filter-group">
+                                    <label for="salary_range">Salary Range:</label>
+                                    <select name="salary_range" class="search-select">
+                                        <option value="">Any salary</option>
+                                        <option value="0-30000">₱0 - ₱30,000</option>
+                                        <option value="30000-60000">₱30,000 - ₱60,000</option>
+                                        <option value="60000-100000">₱60,000 - ₱100,000</option>
+                                        <option value="100000+">₱100,000+</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                     
+                    </div>
+                </form>                
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+      <div class="container">
+        <h2 class="section-title">Choose Your Plan</h2>
+        <p class="section-subtitle">All plans include our revolutionary AI learning tools</p>
+
+        <div class="pricing-cards">
+          <div class="pricing-card">
+            <h3>STANDARD</h3>
+            <div class="price">₱4,999<span>/month</span></div>
+            <ul class="features">
+              <li>1 featured job posting</li>
+              <li>30 days online visibility</li>
+              <li>Listing on the PASIA Job Board page</li>
+              <li>Use within 1 year</li>
+            </ul>
+            <div class="gs-button">
+            <button class="btn btn-outline">Get Started</button>
+            </div>
+            <p class="apply-text">Apply for subscription</p>
+          </div>
+
+          <div class="pricing-card featured">
+            <div class="popular-badge">Most Popular</div>
+            <h3>PREMIUM</h3>
+            <div class="price">₱9,999<span>/3 months</span></div>
+            <ul class="features">
+              <li>Up to 3 job postings</li>
+              <li>60 days online visibility</li>
+              <li>Featured placement on the Job Board page</li>
+              <li>1 social media feature (LinkedIn or Facebook)</li>
+              <li>Use within 1 year</li>
+            </ul>
+            <div class="gs-button">
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+            <p class="apply-text">Apply for subscription</p>
+          </div>
+
+          <div class="pricing-card">
+            <h3>EXCLUSIVE</h3>
+            <div class="price">₱14,999<span>/year</span></div>
+            <ul class="features">
+              <li>Up to 5 job postings</li>
+              <li>90 days online visibility</li>
+              <li>Top-tier placement on the Job Board page</li>
+              <li>Company logo and short profile featured on PASIA.org</li>
+              <li>2 social media promotions (LinkedIn or Facebook)</li>
+              <li>Use within 1 year</li>
+            </ul>
+            <div class="gs-button">
+                <button class="btn btn-outline">Get Started</button>
+            </div>
+            <p class="apply-text">Apply for subscription</p>
+          </div>
+        </div>
+
+        <p class="guarantee-text">30-day money back guarantee on all paid plans</p>
+      </div>
+    </section>
+
+    <section class="featured-companies">
+      <div class="container">
+        <h2 class="section-title">Featured Companies</h2>
+
+        <!-- Static example company card -->
+        <div class="company-showcase">
+          <div class="company-header">
+            <h3>ABC Logistics</h3>
+            <p>Manila, Philippines</p>
+          </div>
+          <div class="company-jobs">
+            <div class="job-card-mini">
+                <div class="job-card-actions">
+                    <button class="save-btn" title="Save">&#9734;</button> <!-- Bookmark icon (☆) -->
+                    <button class="hide-btn" title="Hide">&times;</button> <!-- X icon -->
+                </div>
+                <h4>Supply Chain Analyst</h4>
+                <p class="job-category">Supply Chain</p>
+                <p class="job-description">Responsible for optimizing logistics and procurement strategies...</p>
+                <div class="job-meta">
+                    <span class="job-salary">₱15,000 - ₱20,000</span>
+                    <span class="job-posted">2d ago</span>
+                </div>
+            </div>
+            <div class="job-card-mini">
+                <div class="job-card-actions">
+                    <button class="save-btn" title="Save">&#9734;</button> <!-- Bookmark icon (☆) -->
+                    <button class="hide-btn" title="Hide">&times;</button> <!-- X icon -->
+                </div>
+                <h4>Procurement Officer</h4>
+                <p class="job-category">Procurement</p>
+                <p class="job-description">Manage vendor relationships and handle sourcing initiatives...</p>
+                <div class="job-meta">
+                    <span class="job-salary">₱25,000 - ₱35,000</span>
+                    <span class="job-posted">11d ago</span>
+                </div>
+            </div>
+            <div class="job-card-mini">
+                <div class="job-card-actions">
+                    <button class="save-btn" title="Save">&#9734;</button> <!-- Bookmark icon (☆) -->
+                    <button class="hide-btn" title="Hide">&times;</button> <!-- X icon -->
+                </div>
+                <h4>Logistics Coordinator</h4>
+                <p class="job-category">Logistics</p>
+                <p class="job-description">Coordinate warehouse operations and delivery schedules...</p>
+                <div class="job-meta">
+                    <span class="job-salary">₱20,000 - ₱30,000</span>
+                    <span class="job-posted">19d ago</span>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="recent-jobs">
+      <div class="container">
+        <h2 class="section-title">Recent Job Postings</h2>
+        <div class="job-grid">
+          <div class="job-card">
+            <div class="job-card-actions">
+                <button class="save-btn" title="Save">&#9734;</button> <!-- Bookmark icon (☆) -->
+                <button class="hide-btn" title="Hide">&times;</button> <!-- X icon -->
+            </div>
+            <h3>Operations Manager</h3>
+            <p class="job-category">Operations</p>
+            <p class="job-description">Oversee daily business activities and improve overall efficiency...</p>
+            <div class="job-meta">
+                <span class="job-salary">₱20,000 - ₱30,000</span>
+                <span class="job-posted">9h ago</span>
+            </div>
+          </div>
+          <div class="job-card">
+            <div class="job-card-actions">
+                <button class="save-btn" title="Save">&#9734;</button> <!-- Bookmark icon (☆) -->
+                <button class="hide-btn" title="Hide">&times;</button> <!-- X icon -->
+            </div>
+            <h3>Warehouse Supervisor</h3>
+            <p class="job-category">Logistics</p>
+            <p class="job-description">Manage inventory, staff schedules, and warehouse safety protocols...</p>
+            <div class="job-meta">
+                <span class="job-salary">₱50,000 - ₱75,000</span>
+                <span class="job-posted">21h ago</span>
+            </div>
+          </div>
+          <div class="job-card">
+            <div class="job-card-actions">
+                <button class="save-btn" title="Save">&#9734;</button> <!-- Bookmark icon (☆) -->
+                <button class="hide-btn" title="Hide">&times;</button> <!-- X icon -->
+            </div>
+            <h3>Training Specialist</h3>
+            <p class="job-category">Training</p>
+            <p class="job-description">Design and deliver learning programs for supply chain professionals...</p>
+            <div class="job-meta">
+                <span class="job-salary">₱30,000 - ₱40,000</span>
+                <span class="job-posted">3d ago</span>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary" onclick="window.location.href='all_jobs.html'">View All Jobs</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <img src="../static/images/pasia-white.png" alt="PASIA" class="footer-logo" />
+          <p>Stay connected! Follow us on our social media channels for the latest updates, insights, and more:</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><img src="../static/images/instagram.png"></a>
+            <a href="#" class="social-link"><img src="../static/images/facebook.png"></a>
+            <a href="#" class="social-link"><img src="../static/images/linkedin.png"></a>
+            <a href="#" class="social-link"><img src="../static/images/twitter.png"></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>OFFICE LOCATION:</h3>
+          <p>11th Floor DPC Place Building, 2322 Chino Roces Ave, Makati, 1200 Metro Manila</p>
+          <h3>CONTACT:</h3>
+          <p>+63 919 088 7322 | +63 995 252 1367</p>
+          <p>+63 2 8844 9188</p>
+          <p>info@pasia.org</p>
+        </div>
+        <div class="footer-section">
+          <h3>MAPS LOCATION</h3>
+          <div class="map-placeholder">
+            <p>Map View</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/js/scripts.js"></script>
+</body>
+</html>
